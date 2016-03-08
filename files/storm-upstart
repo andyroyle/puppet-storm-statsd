@@ -1,0 +1,20 @@
+# storm-statsd - Report storm metrics to statsd
+#
+# This is a daemon that polls one or more storm instances and
+# sends the metrics to statsd
+#
+description "Report storm metrics to statsd"
+author      "Andy Royle"
+
+start on (local-filesystems and net-device-up IFACE!=lo)
+
+respawn
+respawn limit 10 5
+
+setuid nobody
+setgid nogroup
+
+script
+    . /etc/default/storm-statsd
+    exec $NODEJS $STORMJS $STORM_CONFIG_DIR >> $STORM_LOGFILE
+end script

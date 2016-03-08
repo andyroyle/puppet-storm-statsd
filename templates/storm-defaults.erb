@@ -1,0 +1,11 @@
+# HEADER: This file is being managed by Puppet. Any manual changes to this file
+# will be overwritten.
+
+<% @environment.each do |val| -%>
+<%= val %>
+<% end -%>
+NODEJS="<%= @nodejs_bin %>"
+STORMJS="<%= @stormjs %>"
+STORM_CONFIG_DIR="<%= @configdir %>"
+STORM_LOGFILE="<%= @logfile %>"
+DAEMON_ARGS="$STORMJS $STORM_CONFIG_DIR $STORM_LOGFILE"

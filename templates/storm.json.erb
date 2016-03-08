@@ -1,0 +1,16 @@
+[
+  <% @servers.each_with_index do |server, i| -%>
+    {
+      "host": "<%= server['host'] %>",
+      "username": "<%= server['username'] %>",
+      "password": "<%= server['password'] %>",
+      <% if server['tags'] -%>
+      "tags": <%= server['tags'].to_json %>,
+      <% end -%>
+      "prefix": "<%= server['prefix'] || '' %>"
+    }
+    <% if @servers.length > 1 && i != (@servers.length - 1) -%>
+      ,
+    <% end -%>
+  <% end -%>
+]
