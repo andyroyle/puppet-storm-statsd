@@ -1,6 +1,6 @@
 {
   "name": "andyroyle-storm_statsd",
-  "version": "1.0.4",
+  "version": "1.0.0",
   "source": "https://github.com/andyroyle/puppet-storm-statsd",
   "author": "Andy Royle",
   "license": "Apache-2.0",
